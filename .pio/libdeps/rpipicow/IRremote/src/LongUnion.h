@@ -85,8 +85,8 @@ union LongUnion {
         int16_t HighWord;
     } Word;
     struct {
-        WordUnion LowWord;
-        WordUnion HighWord;
+        ::WordUnion LowWord;
+        ::WordUnion HighWord;
     } WordUnion;
     uint8_t UBytes[4]; // seems to have the same code size as using struct UByte
     int8_t Bytes[4]; // Bytes[0] is LowByte
@@ -118,10 +118,10 @@ union LongLongUnion {
         int16_t HighWord;
     } Word;
     struct {
-        WordUnion LowWord;
-        WordUnion MidLowWord;
-        WordUnion MidHighWord;
-        WordUnion HighWord;
+        ::WordUnion LowWord;
+        ::WordUnion MidLowWord;
+        ::WordUnion MidHighWord;
+        ::WordUnion HighWord;
     } WordUnion;
     struct {
         uint32_t LowLong;
@@ -132,8 +132,8 @@ union LongLongUnion {
         int32_t HighLong;
     } Long;
     struct {
-        LongUnion LowLong;
-        LongUnion HighLong;
+        ::LongUnion LowLong;
+        ::LongUnion HighLong;
     } LongUnion;
     uint8_t UBytes[8]; // seems to have the same code size as using struct UByte
     int8_t Bytes[8];
