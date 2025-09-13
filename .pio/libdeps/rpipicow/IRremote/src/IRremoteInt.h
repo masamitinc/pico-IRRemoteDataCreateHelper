@@ -35,6 +35,10 @@
 
 #include <Arduino.h>
 
+#if !defined(RAW_BUFFER_LENGTH)
+#define RAW_BUFFER_LENGTH  (100)
+#endif
+
 #define MARK   1
 #define SPACE  0
 
@@ -479,7 +483,7 @@ public:
     void sendBiphaseData(uint16_t aBiphaseTimeUnit, uint32_t aData, uint_fast8_t aNumberOfBits);
 
     void mark(uint16_t aMarkMicros);
-    static void space(uint16_t aSpaceMicros);
+    void space(uint16_t aSpaceMicros);
     void IRLedOff();
 
 // 8 Bit array
@@ -607,6 +611,9 @@ public:
     uint16_t getPulseCorrectionNanos();
 
     static void customDelayMicroseconds(unsigned long aMicroseconds);
+    uint8_t rawlen;
+    uint16_t rawbuf[RAW_BUFFER_LENGTH];
+    int8_t rawOn[RAW_BUFFER_LENGTH];
 };
 
 /*
